@@ -1,0 +1,43 @@
+/* fonts */
+
+@prefix:'font';
+
+.font-face (@font-dir, @font-family, @file-name, @font-id, @font-weight, @font-style) {
+    font-family: @font-family;
+    src: url('@{prefix}/@{font-dir}/@{file-name}.woff') format('woff'),
+         url('@{prefix}/@{font-dir}/@{file-name}.ttf')  format('truetype'),
+         url('@{prefix}/@{font-dir}/@{file-name}.svg#@{font-id}') format('svg');
+    font-weight: @font-weight;
+    font-style:  @font-style;
+}
+
+.open-sans (@name, @weight, @style) {
+    .font-face('open-sans', 'OpenSans', 'OpenSans-@{name}-webfont', 'OpenSans@{name}', @weight, @style);
+}
+
+.new-cicle (@name, @weight, @style) {
+    .font-face('new-cicle', 'NewCicle', 'NewCicle-@{name}-webfont', 'NewCicle@{name}', @weight, @style);
+}
+
+.greyscale-basic (@name, @weight, @style) {
+    .font-face('greyscale-basic', 'GreyscaleBasic', 'GreyscaleBasic-@{name}-webfont', 'GreyscaleBasic@{name}', @weight, @style);
+}
+
+@font-face { .open-sans('Light',          200, normal) }
+@font-face { .open-sans('LightItalic',    200, italic) }
+@font-face { .open-sans('Regular',        400, normal) }
+@font-face { .open-sans('Italic',         400, italic) }
+@font-face { .open-sans('Semibold',       600, normal) }
+@font-face { .open-sans('SemiboldItalic', 600, italic) }
+@font-face { .open-sans('Bold',           700, normal) }
+@font-face { .open-sans('BoldItalic',     700, italic) }
+
+@font-face { .new-cicle('Semi',          400, normal) }
+@font-face { .new-cicle('SemiItalic',    400, italic) }
+@font-face { .new-cicle('Gordita',       700, normal) }
+@font-face { .new-cicle('GorditaItalic', 700, italic) }
+
+@font-face { .greyscale-basic('Regular',       400, normal) }
+@font-face { .greyscale-basic('RegularItalic', 400, italic) }
+@font-face { .greyscale-basic('Bold',          700, normal) }
+@font-face { .greyscale-basic('BoldItalic',    700, italic) }
