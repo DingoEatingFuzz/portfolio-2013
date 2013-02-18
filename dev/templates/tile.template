@@ -1,4 +1,4 @@
-<a class='w<%= width %>h<%= height %> tile'>
+<a class='tile'>
   <article>
   <h2><%= title %></h2>
   <p><%= description %></p>

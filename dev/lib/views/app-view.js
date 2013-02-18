@@ -1,6 +1,6 @@
 def.collection('TileCollection', function() {
 def.template('siteFrame', function() {
-$.getJSON('/content/projects.json', function(appData) {
+$.getJSON('content/projects.json', function(appData) {
 
 def.v.AppView = Backbone.View.extend({
     el: '#container',
@@ -18,7 +18,7 @@ def.v.AppView = Backbone.View.extend({
         this.adjustSize();
         $(window).resize(this.adjustSize);
 
-        this.stream = new def.c.TileCollection();
+        window.tc = this.stream = new def.c.TileCollection();
         this.stream.on('add', this.addTile, this);
         this.stream.add(appData.projects);
     },
@@ -30,7 +30,14 @@ def.v.AppView = Backbone.View.extend({
         console.log('contact event');
     },
     filterStream: function(e) {
-        console.log('filter event');
+        var pattern = $(e.target).val().toLowerCase();
+        this.stream.forEach(function(model) {
+            if(model.get('title').toLowerCase().indexOf(pattern) !== -1 || model.get('description').toLowerCase().indexOf(pattern) !== -1) {
+                model.trigger('show');
+            } else {
+                model.trigger('hide');
+            }
+        });
     },
     adjustSize: function(e) {
         if ($(window).height() >= $(document).height()) {
