@@ -8,18 +8,6 @@ def.m.StreamTile = Backbone.Model.extend({
 		title: '',
 		description: '',
 		tools: []
-	},
-
-	open: function() {
-
-	},
-
-	hide: function() {
-
-	},
-
-	show: function() {
-
 	}
 
 });

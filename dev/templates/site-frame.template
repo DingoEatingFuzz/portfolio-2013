@@ -20,19 +20,20 @@
     <section>
         <p>I make software for humans. It starts with an idea, it is carried through with code, but the most important part is the interface. I design interfaces. Graphical ones, programming ones, natural ones, command line ones, etc. The interface is what connects humans to machines. It differentiates nonsense and clarity, and it is has the last word in what is good or bad. I use my talents in design and software development to create software that humans like to use.</p>
         <p class='action-items'>
-            <a href='#resume'  id='resume-link' class='button orange'><span>View My Resume</span></a>
-            <a href='#contact' id='contact-link' class='button text'>Contact</a>
+            <a href='resume'  id='resume-link' class='button orange'><span>View My Resume</span></a>
+            <a href='contact' id='contact-link' class='button text'>Contact</a>
         </p>
     </section>
 </div>
 <div id='right' class='wrapper'>
+    <div class='article'></div>
     <ul id='tile-list'></ul>
 </div>
 <nav class='mobile navigation bottom'>
     <ul>
-        <li><a href='#home'     class='home    '><span class='icon-home'>Home</span></a></li>
-        <li><a href='#projects' class='projects'><span class='icon-wrench'>Projects</span></a></li>
-        <li><a href='#resume'   class='resume  '><span class='icon-file'>Resume</span></a></li>
-        <li><a href='#contact'  class='contact '><span class='icon-envelope-alt'>Contact</span></a></li>
+        <li><a href='/'     class='home    '><span class='icon-home'>Home</span></a></li>
+        <li><a href='projects' class='projects'><span class='icon-wrench'>Projects</span></a></li>
+        <li><a href='resume'   class='resume  '><span class='icon-file'>Resume</span></a></li>
+        <li><a href='contact'  class='contact '><span class='icon-envelope-alt'>Contact</span></a></li>
     </ul>
 </nav>

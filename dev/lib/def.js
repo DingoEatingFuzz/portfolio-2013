@@ -13,11 +13,11 @@ window.def = {
 	options: {
         homePageTemplate: 'standard'
 	},
-    jsRoot:          'lib/',
-    modelsRoot:      'lib/models/',
-    viewsRoot:       'lib/views/',
-    collectionsRoot: 'lib/collections/',
-    templatesRoot:   'templates/',
+    jsRoot:          '/lib/',
+    modelsRoot:      '/lib/models/',
+    viewsRoot:       '/lib/views/',
+    collectionsRoot: '/lib/collections/',
+    templatesRoot:   '/templates/',
     utils: defUtils,
 
     template: function(templateName, callback) {
@@ -92,6 +92,7 @@ window.def = {
                 defer = $.when.apply(null, deferrables)
             ;
             defer.done(callback);
+            console.log(unloadedFiles);
             head.js.apply(null, unloadedFiles);
             return defer;
         } else {
@@ -113,6 +114,7 @@ window.def = {
     },
 
     _resolveDeferred: function(deferredName, dictionary) {
+        console.log('resolving ' + deferredName);
         var deferred = dictionary[deferredName];
         if (deferred) {
             deferred.resolve();

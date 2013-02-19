@@ -6,7 +6,6 @@ def.Routes = Backbone.Router.extend({
         'contact':              'contact',
         'work':                 'workList',
         'work/:entry':          'work',
-        'work/:entry/:picture': 'work'
     },
 
     initialize: function() {
@@ -14,13 +13,17 @@ def.Routes = Backbone.Router.extend({
         // I should watch some videos on backbone or something
         // I think I need to instantiate the AppView, which will construct the left controls
         // Then leave the work stream to the index function
+        var self = this;
+        console.log('init router');
         def.view('AppView', function() {
-            new def.v.AppView();
+            console.log('loading up app')
+            this.app = new def.v.AppView();
         });
+
     },
 
     index: function() {
-
+        console.log('index loaded');
     },
 
     resume: function() {
@@ -32,9 +35,10 @@ def.Routes = Backbone.Router.extend({
     },
 
     workList: function() {
+
     },
 
-    work: function(entry, picture) {
+    work: function(entry) {
 
     }
 

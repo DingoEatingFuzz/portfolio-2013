@@ -1,13 +1,14 @@
 def.collection('TileCollection', function() {
+def.model('Article', function() {
 def.template('siteFrame', function() {
-$.getJSON('content/projects.json', function(appData) {
+$.getJSON('/content/projects.json', function(appData) {
 
 def.v.AppView = Backbone.View.extend({
     el: '#container',
     template: _.template(def.t.siteFrame),
 
     events: {
-        'click #resume-link': 'gotoResume',
+        'click #resume-link':  'gotoResume',
         'click #contact-link': 'gotoContact',
         'keyup #search-field': 'filterStream'
     },
@@ -24,12 +25,15 @@ def.v.AppView = Backbone.View.extend({
     },
 
     gotoResume: function(e) {
-        console.log('resume event');
+        e.preventDefault();
+        def.router.navigate('resume', { trigger: true });
     },
     gotoContact: function(e) {
-        console.log('contact event');
+        e.preventDefault();
+        def.router.navigate('contact');
     },
     filterStream: function(e) {
+        // close open article
         var pattern = $(e.target).val().toLowerCase();
         this.stream.forEach(function(model) {
             if(model.get('title').toLowerCase().indexOf(pattern) !== -1 || model.get('description').toLowerCase().indexOf(pattern) !== -1) {
@@ -49,13 +53,14 @@ def.v.AppView = Backbone.View.extend({
 
     addTile: function(tile) {
         // construct view for tile
-        var view = new def.v.StreamTileView({ model: tile });
+        var view = new def.v.StreamTileView({ model: tile, collection:this.stream });
         $('#tile-list').append( view.render().el );
     }
 });
 
 def.resolveView('AppView');
 
+});
 });
 });
 });
